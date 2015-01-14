@@ -14,3 +14,12 @@ def internal(str):
     
   array.sort()
   return array[0]
+  
+def end(str):
+  array = []
+  
+  for i in range (0, len(str)-k+1):
+    array.append(str[i:i+k])
+    
+  array.sort()
+  return array[0]
