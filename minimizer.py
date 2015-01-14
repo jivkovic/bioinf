@@ -23,3 +23,10 @@ def end(str):
     
   array.sort()
   return array[0]
+
+for i in range (0, len(Genome)-l+1):
+  print internal(Genome[i:i+l])
+  
+print "\r-\r"
+for i in range (0, len(Genome)-k+1):
+  print end(Genome[0:i+k])
