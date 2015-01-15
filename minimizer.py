@@ -1,6 +1,6 @@
 #!/usr/bin/python
 
-import sys
+import sys, time, resource
 
 # init
 inputFile = sys.argv[1]
@@ -54,6 +54,9 @@ def remove_duplicates(array):
   
 # main
 
+# start clock
+time_start = time.clock()
+
 # file input
 with open (inputFile, "r") as myfile:
   Genome=myfile.read().replace('\n', '').replace('\r', '')
@@ -78,6 +81,12 @@ f = open('output.txt','w')
 for item in minimizers:
   f.write("%s\r" % item)
 f.close()
+
+# stop clock and profile memory
+time_elapsed = (time.clock() - time_start)
+memory_used  = resource.getrusage(resource.RUSAGE_SELF).ru_maxrss
   
 # finish
-print "done!"
+print "Minimizers generated!"
+print "Time elapsed: ", time_elapsed, "seconds"
+print "Memory used: ",  memory_used,  "KB"
