@@ -10,10 +10,7 @@ k = int(sys.argv[3])
 l = w+k-1
 
 minimizers = []
-
-# file input
-with open (inputFile, "r") as myfile:
-  Genome=myfile.read().replace('\n', '').replace('\r', '')
+  
     
 # function for finding a minimal substring (minimizer) within a substring
 def minimizer(str):
@@ -38,7 +35,7 @@ def left_end(str):
 def right_end(str):
   array = []
   
-  for i in range (0, k):
+  for i in range (0, l-k):
     array.append(minimizer(str[i:l]))
     
   return array
@@ -52,6 +49,14 @@ def remove_duplicates(array):
       newArray.append(str)
       
   return newArray
+  
+  
+  
+# main
+
+# file input
+with open (inputFile, "r") as myfile:
+  Genome=myfile.read().replace('\n', '').replace('\r', '')
   
 # find left end minimizers
 for str in left_end(Genome[0:l]):
